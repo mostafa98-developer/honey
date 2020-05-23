@@ -8,7 +8,7 @@
     "server": "nodemon index.js --prefix Server",
     "React": "npm start --prefix React/mytest",
     "install": "npm install --prefix Server && npm --prefix React/mytest",
-    "start": "npm start --prefix server",
+    "start": "npm start --prefix Server",
     "heroku-postbuild": "npm run build --prefix React/mytest"
   },
   "keywords": [
