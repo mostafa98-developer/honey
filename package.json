@@ -5,11 +5,11 @@
   
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npm run dev --prefix Server",
+    "server": "npm run  --prefix Server",
     "React": "npm start --prefix React/mytest",
     "install": "npm install --prefix Server && npm install --prefix React/mytest",
     "start": "node Server/index.js",
-    "heroku-postbuild": "npm run build --prefix React/mytest"
+    "heroku-postbuild": "npm run build --prefix React"
   },
   "engines": {
     "node": "12.16.1",
