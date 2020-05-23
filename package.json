@@ -8,7 +8,7 @@
     "server": "npm run dev --prefix Server",
     "React": "npm start --prefix React/mytest",
     "install": "npm install --prefix Server && npm install --prefix React/mytest",
-    "start": "npm start --prefix server",
+    "start": "node index.js",
     "heroku-postbuild": "npm run build --prefix React/mytest"
   },
   "engines": {
