@@ -23,6 +23,8 @@
     "mostafa"
   ],
   "author": "mostafa almomani",
-  "license": "MIT"
- 
+  "license": "MIT",
+  "engines": {
+    "node": "10.16.2"
+  }
 }

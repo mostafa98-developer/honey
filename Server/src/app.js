@@ -10,7 +10,7 @@ const uri2= "mongodb+srv://moastaf98:mostafa118150@honey-yttsl.mongodb.net/test?
 const uri = "mongodb://moastaf98:mostafa118150@honey-shard-00-00-yttsl.mongodb.net:27017,honey-shard-00-01-yttsl.mongodb.net:27017,honey-shard-00-02-yttsl.mongodb.net:27017/test?ssl=true&replicaSet=honey-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose.Promise = require("bluebird");
 setTimeout(function() {
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGODB_URL, {
   // server: {
   //   socketOptions: {
   //     socketTimeoutMS: 0,
