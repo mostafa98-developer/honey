@@ -10,7 +10,7 @@ const uri2= "mongodb+srv://moastaf98:mostafa118150@honey-yttsl.mongodb.net/test?
 const uri = "mongodb://moastaf98:mostafa118150@honey-shard-00-00-yttsl.mongodb.net:27017,honey-shard-00-01-yttsl.mongodb.net:27017,honey-shard-00-02-yttsl.mongodb.net:27017/test?ssl=true&replicaSet=honey-shard-0&authSource=admin&retryWrites=true&w=majority";
 mongoose.Promise = require("bluebird");
 setTimeout(function() {
-mongoose.connect(uri, {
+mongoose.connect(process.env.MONGO_URL, {
   // server: {
   //   socketOptions: {
   //     socketTimeoutMS: 0,
@@ -40,11 +40,12 @@ mongoose.connect(uri, {
 //     const collection = client.db("test").collection("students")
 //   }
 //  });
-
+if (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, "../../React/mytest/build")));
 app.get("*", (req,res) => {
   res.sendFile(path.resolve(__dirname, "../../React/mytest", "build" ,"index.html"))
 })
+}
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
