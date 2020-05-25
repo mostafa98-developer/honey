@@ -8,6 +8,8 @@ const routev1 = require('./routes/v1');
 const passport = require('passport');
 const uri2= "mongodb+srv://moastaf98:mostafa118150@honey-yttsl.mongodb.net/test?retryWrites=true&w=majority"
 const uri = "mongodb://moastaf98:mostafa118150@honey-shard-00-00-yttsl.mongodb.net:27017,honey-shard-00-01-yttsl.mongodb.net:27017,honey-shard-00-02-yttsl.mongodb.net:27017/test?ssl=true&replicaSet=honey-shard-0&authSource=admin&retryWrites=true&w=majority";
+const {createProxyMiddleware}  = require('http-proxy-middleware');
+app.use('/api', createProxyMiddleware ({ target: "http://localhost:3400/api/myroutes/Order/:exp_id", changeOrigin: true }));
 mongoose.Promise = require("bluebird");
 setTimeout(function() {
 mongoose.connect(process.env.MONGODB_URL, {
@@ -40,12 +42,14 @@ mongoose.connect(process.env.MONGODB_URL, {
 //     const collection = client.db("test").collection("students")
 //   }
 //  });
-if (process.env.NODE_ENV === 'production') {
-app.use(express.static(path.join(__dirname, "../../React/mytest/build")));
-app.get("*", (req,res) => {
-  res.sendFile(path.resolve(__dirname, "../../React/mytest", "build" ,"index.html"))
-})
-}
+// if (process.env.NODE_ENV === 'production') {
+
+// app.use(express.static(path.join(__dirname, "../../React/mytest/build")));
+// app.get("*", (req,res) => {
+//   res.sendFile(path.resolve(__dirname, "../../React/mytest", "build" ,"index.html"))
+// })
+// }
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());

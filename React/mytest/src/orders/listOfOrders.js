@@ -173,11 +173,15 @@ export default function AdvancedGridList() {
     const fetchData = async () => {
       const token = localStorage.getItem('honey_token');
       const user_id = localStorage.getItem("id");
+      console.log("hhhhhhhhhhhhh")
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       const result = await axios({
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
+        params:{Origin:"*"},
         method: 'get',
         url: `http://localhost:3400/api/myroutes/Order/${user_id}`,
       });
