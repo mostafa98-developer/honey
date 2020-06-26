@@ -4,20 +4,21 @@ const stringify = require('json-stringify-safe');
 const OrderRouter = {}
 
 OrderRouter.get = async (req, res, next) => {
-    console.log('req.params.exp_id')
+    console.log(req.params.exp_id)
     const query = {
         user_id: req.params.exp_id
     }
     try {
-         Order.find(query).then(element => {
+       await  Order.find(query).then(element => {
             console.log(element);
-            return res.send({
-                element
-             })
+            return res.status(200).json({element})
+            // return res.send({
+            //     element
+            //  })
         });
-        return res.send({
-            element: ['no!!']
-         })
+        // res.status(404).json({
+        //     element: ['no!!']
+        //  })
     } catch (e) {
         next(e);
     }

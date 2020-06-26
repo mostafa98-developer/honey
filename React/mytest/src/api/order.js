@@ -25,10 +25,7 @@ export const api_orderList = (req) => {
             'content-type': 'application/json'
         },
         method: 'get',
-        url: `http://localhost:3400/api/myroutes/Order`,
-        data: {
-            user_id: req.user_id
-        }
+        url: `http://localhost:3400/api/myroutes/Order/${req.user_id}`,
     });
     
 }

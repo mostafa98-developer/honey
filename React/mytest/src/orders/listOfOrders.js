@@ -178,10 +178,8 @@ export default function AdvancedGridList() {
       const result = await axios({
         headers: {
           'content-type': 'application/json',
-          'Access-Control-Allow-Origin' : '*',
-          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
-        params:{Origin:"*"},
+       // params:{Origin:"*"},
         method: 'get',
         url: `http://localhost:3400/api/myroutes/Order/${user_id}`,
       });
